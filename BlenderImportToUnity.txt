@@ -1,0 +1,78 @@
+1. Szene aufräumen in Blender
+
+    Entferne alles, was nicht zum Auto gehört (z. B. Kameras, Lichter, Helfer-Objekte)
+
+    Falls möglich, fasse einzelne Meshes zusammen (z. B. mehrere Autoteile zu „Body“)
+
+2. Alles anwenden (Apply Everything)
+
+Damit Unity dein Modell korrekt einliest, musst du alle Transformationen „backen“:
+
+    Wähle dein Auto und alle zugehörigen Objekte im Object Mode
+
+    Drücke Ctrl + A → wähle nacheinander:
+
+        ✅ Location
+
+        ✅ Rotation
+
+        ✅ Scale
+
+✅ Jetzt ist das Objekt intern „neutralisiert“ – keine versteckten Drehungen, keine seltsame Skalierung. In der Seitenleiste (N) sollte überall 0 (Location/Rotation) und 1 (Scale) stehen.
+
+3. Pivot korrekt setzen (Origin)
+
+Damit dein Auto sich in Unity richtig dreht und positioniert:
+
+    Menü: Object > Set Origin > Origin to Geometry
+    (oder „Origin to Center of Mass“, wenn’s präziser sitzen soll)
+
+✅ Der Drehpunkt (Pivot) sitzt jetzt korrekt in der Mitte des Meshes – wichtig für Rigidbody und Drehverhalten.
+
+4. erneut Alles anwenden (Apply Everything)
+
+Damit Unity dein Modell korrekt einliest, musst du alle Transformationen „backen“:
+
+    Wähle dein Auto und alle zugehörigen Objekte im Object Mode
+
+    Drücke Ctrl + A → wähle nacheinander:
+
+        ✅ Location
+
+        ✅ Rotation
+
+        ✅ Scale
+
+5. Modell auf den Boden setzen (optional, empfohlen)
+
+Du willst, dass dein Auto in Unity direkt auf dem Boden steht:
+
+    Wechsle in den Edit Mode (Tab)
+
+    Wähle alles aus (A)
+
+    Verschiebe das Mesh so, dass der Boden auf Y = 0 liegt
+
+    Zurück in den Object Mode
+
+    Noch einmal: Set Origin > Origin to Geometry
+
+    Optional: Ctrl + A → Location anwenden
+
+📌 Damit liegt dein Auto direkt auf dem Unity-Boden und nicht in der Luft.
+
+6. Exportieren als FBX
+
+    Menü: File > Export > FBX (.fbx)
+
+    In den Einstellungen rechts:
+
+        ✅ Apply Transform aktivieren
+
+        ✅ Nur „Mesh“ unter „Object Types“ (Lichter/Kameras abwählen)
+
+        ✅ „Limit to: Selected Objects“, wenn du nur bestimmte Teile exportierst
+
+        Forward = -Z Forward
+
+        Up = Y Up
